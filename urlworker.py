@@ -47,6 +47,7 @@ class URLWorker():
 
         except Exception as ex:
             print("Error in function 'url_online' :", ex)
+            sys.exit(1)
 
     def worlist_creator(self):
 
