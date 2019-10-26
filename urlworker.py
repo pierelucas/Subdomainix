@@ -40,21 +40,21 @@ class URLWorker():
 
         try:
 
+            self.url = f"http://{self.url}"
             url = requests.get(self.url)
             status = url.status_code
             if status < 300: return True
             else: return False
 
-        except Exception as ex:
-            print("Error in function 'url_online' :", ex)
-            sys.exit(1)
+        except Exception:
+            return False
 
     def worlist_creator(self):
 
         try:
 
             if self.wordlist == () and self.wordlist_path == "":
-                print("Required: wordlist and/or wordlist_path argmument")
+                print("\n[-] Error\n[-] Required: wordlist and/or wordlist_path argmument")
                 raise Exception
 
             elif self.wordlist == ():
@@ -79,7 +79,7 @@ class URLWorker():
 
         while self.wordlist != deque([]):
             word = self.wordlist[0]
-            self.url = word + self.url
+            self.url = f"{word}.{self.url}"
             _true = self.url_online()
             if _true:
                 self.valid_urls.append(self.url)
