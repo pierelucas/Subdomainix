@@ -1,4 +1,4 @@
 # Author: PiereLucas(JUlian Huch)
 
 
-from modules import URLWorker
+from urlworker import URLWorker
