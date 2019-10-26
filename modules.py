@@ -2,14 +2,14 @@
 
 
 """
-Usage:
-    For URL Status:
-        object = modules.URLWorker(url)
-        _true = object.url_online()
-    For Checking Subdomains:
-        object = modules.URLWorker(url, worlist=(), wordlist_path="")
-        valid_urls = object.check_subd()
-
+URLWorker Module:
+    Usage:
+        For URL Status:
+            object = modules.URLWorker(url)
+            _true = object.url_online()
+        For Checking Subdomains:
+            object = modules.URLWorker(url, worlist=(), wordlist_path="")
+            valid_urls = object.check_subd()
 """
 
 
