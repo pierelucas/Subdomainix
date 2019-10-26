@@ -5,11 +5,14 @@
 Usage:
     For URL Status:
         object = modules.URLWorker(url)
-        _true, status = object.url_online()
+        _true = object.url_online()
+    For Checking Subdomains:
+        object = modules.URLWorker(url, worlist=(), wordlist_path="")
+        valid_urls = object.check_subd()
+
 """
 
 
-import os
 import sys
 import requests
 from collections import deque
@@ -32,6 +35,18 @@ class URLWorker():
         self.worlist_creator()
         self.check_domains()
         return self.valid_urls
+
+    def url_online(self):
+
+        try:
+
+            url = requests.get(self.url)
+            status = url.status_code
+            if status < 300: return True
+            else: return False
+
+        except Exception as ex:
+            print("Error in function 'url_online' :", ex)
 
     def worlist_creator(self):
 
@@ -70,16 +85,3 @@ class URLWorker():
             self.wordlist.popleft()
             continue
         return
-
-
-    def url_online(self):
-
-        try:
-
-            url = requests.get(self.url)
-            status = url.status_code
-            if status < 300: return True
-            else: return False
-
-        except Exception as ex:
-            print("Error in function 'url_online' :", ex)
