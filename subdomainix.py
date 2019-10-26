@@ -1,4 +1,4 @@
-# Author: PiereLucas(JUlian Huch)
+# Author: PiereLucas(Julian Huch)
 
 
 import sys
@@ -43,7 +43,7 @@ class Controller(Parser, URLWorker):
     def run(self):
         """ Run function """
 
-        print(f"[+] Scanning: [{self.target}]")
+        print(f"[+] Subdomainix - Subdomain Scanner\n[+] Scanning: [{self.target}]")
         valid_url_list = self.check_subd()
         if valid_url_list == []:
             print(f"[-] No Subdomains found")

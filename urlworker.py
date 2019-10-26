@@ -71,8 +71,11 @@ class URLWorker():
 
             return
 
-        except Exception as ex:
-            print(ex)
+        except PermissionError as ex:
+            print(f"No Permission to read file [{self.wordlist_path}] :", ex)
+            sys.exit(1)
+        except FileNotFoundError as ex:
+            print(f"File not found [{self.wordlist_path}] :", ex)
             sys.exit(1)
 
     def check_domains(self):
