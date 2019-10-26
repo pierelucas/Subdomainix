@@ -1,5 +1,5 @@
 # Author: PiereLucas(Julian Huch)
-
+# MIT License
 
 import sys
 from argparse import ArgumentParser

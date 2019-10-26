@@ -1,4 +1,5 @@
 # Author: PiereLucas(Julian Huch)
+# MIT License
 
 
 """
