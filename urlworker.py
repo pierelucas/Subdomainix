@@ -25,7 +25,8 @@ class URLWorkerException():
 
 class URLWorker():
 
-    def __init__(self, url, *, wordlist=(), wordlist_path=""):
+    def __init__(self, url, *, wordlist=None, wordlist_path=""):
+        self.base_url = url
         self.url = url
         self.valid_urls = []
         self.wordlist = wordlist
@@ -54,11 +55,11 @@ class URLWorker():
 
         try:
 
-            if self.wordlist == () and self.wordlist_path == "":
+            if self.wordlist is None and self.wordlist_path == "":
                 print("\n[-] Error\n[-] Required: wordlist and/or wordlist_path argmument")
                 raise Exception
 
-            elif self.wordlist == ():
+            elif self.wordlist is None:
                 with open(self.wordlist_path, 'rt') as f:
                     self.wordlist = deque(f.readlines())
 
@@ -83,7 +84,7 @@ class URLWorker():
 
         while self.wordlist != deque([]):
             word = self.wordlist[0]
-            self.url = f"{word}.{self.url}"
+            self.url = f"{word}.{self.base_url}".replace("\n", "")
             _true = self.url_online()
             if _true:
                 self.valid_urls.append(self.url)

@@ -22,9 +22,10 @@ class Parser():
         self.target = args.target
 
         if args.wordlist:
-            self.wordlist = args.wordlist
+            self.wordlist = list()
+            self.wordlist.append(args.wordlist)
         else:
-            self.wordlist = ()
+            self.wordlist = None
 
         if args.wordlist_path:
             self.wordlist_path = args.wordlist_path

@@ -1,0 +1,8 @@
+accounts
+mail
+email
+cpanel
+admin
+adminer
+chat
+torrent
