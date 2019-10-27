@@ -61,7 +61,11 @@ class URLWorker():
 
             elif self.wordlist is None:
                 with open(self.wordlist_path, 'rt') as f:
-                    self.wordlist = deque(f.readlines())
+                    wlist = f.readlines()
+                    wordlist = deque()
+                    for st in wlist:
+                        wordlist.append(st.rstrip())
+                    self.wordlist = wordlist
 
             elif self.wordlist_path == "":
                 self.wordlist = deque(self.wordlist)
@@ -69,7 +73,10 @@ class URLWorker():
             else:
                 with open(self.wordlist_path, 'rt') as f:
                     wlist = f.readlines()
-                    self.wordlist = deque([*self.wordlist, *wlist])
+                    wordlist = deque()
+                    for st in wlist:
+                        wordlist.append(st.rstrip())
+                    self.wordlist = deque([*self.wordlist, *wordlist])
 
             return
 
@@ -84,7 +91,7 @@ class URLWorker():
 
         while self.wordlist != deque([]):
             word = self.wordlist[0]
-            self.url = f"{word}.{self.base_url}".replace("\n", "")
+            self.url = f"{word}.{self.base_url}"
             _true = self.url_online()
             if _true:
                 self.valid_urls.append(self.url)
