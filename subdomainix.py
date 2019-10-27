@@ -1,8 +1,8 @@
 # Author: PiereLucas(Julian Huch)
 # MIT License
 
+
 import sys
-from typing import final
 from argparse import ArgumentParser
 from urlworker import URLWorker
 
@@ -32,7 +32,6 @@ class Parser():
             self.wordlist_path = ""
 
 
-@final
 class Controller(Parser, URLWorker):
     """
     Controller Class for run whole program and give arguments to the URLWorker

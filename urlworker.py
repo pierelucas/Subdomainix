@@ -16,7 +16,6 @@ URLWorker Module:
 
 import sys
 import requests
-from typing import final
 from collections import deque
 
 
@@ -32,7 +31,6 @@ class URLWorker():
         self.wordlist = wordlist
         self.wordlist_path = wordlist_path
 
-    @final
     def check_subd(self):
 
         self.worlist_creator()
@@ -52,7 +50,6 @@ class URLWorker():
         except Exception:
             return False
 
-    @final
     def worlist_creator(self):
 
         try:
